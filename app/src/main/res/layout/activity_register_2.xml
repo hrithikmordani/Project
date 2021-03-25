@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register_2">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_register2"
+        android:layout_width="355dp"
+        android:layout_height="507dp"
+        app:cardBackgroundColor="@color/deep_blue"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_finish_registration"
+                android:layout_width="118dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/button2"
+                android:fontFamily="@font/playfair_display"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_blood_group" />
+
+            <EditText
+                android:id="@+id/edit_text_height"
+                android:layout_width="245dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button2"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Height in feet"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#03A9F4"
+                android:textColorHint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_weight" />
+
+            <EditText
+                android:id="@+id/edit_text_blood_group"
+                android:layout_width="245dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/button2"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Blood group"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#03A9F4"
+                android:textColorHint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_weight" />
+
+            <EditText
+                android:id="@+id/edit_text_weight"
+                android:layout_width="245dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button2"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Weight in kgs"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#03A9F4"
+                android:textColorHint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_dob" />
+
+            <EditText
+                android:id="@+id/edit_text_dob"
+                android:layout_width="245dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button2"
+                android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Date of Birth"
+                android:inputType="date"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#03A9F4"
+                android:textColorHint="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_personal_details" />
+
+            <TextView
+                android:id="@+id/text_view_personal_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/playfair_display"
+                android:text="Personal details"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_register2" />
+
+            <TextView
+                android:id="@+id/textview_register2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/playfair_display"
+                android:text="Register"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
