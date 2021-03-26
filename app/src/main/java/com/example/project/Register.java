@@ -31,7 +31,6 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     EditText name,contact,email,password;
     EditText confirmpassword;
     FirebaseAuth fAuth;
-    FirebaseFirestore fStore;
     String text;
 
 
@@ -46,13 +45,15 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
         name = findViewById(R.id.edit_text_full_name);
         contact = findViewById(R.id.edit_text_contact_number);
         email = findViewById(R.id.edit_text_email_register);
         password = findViewById(R.id.edit_text_password);
         confirmpassword = findViewById(R.id.edit_text_confirm_password);
         btn_next = findViewById(R.id.button_register_next);
+
+
+
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +62,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                 String sname = name.getText().toString();
                 String scontact  = contact.getText().toString();
                 String sconfirmpassword = confirmpassword.getText().toString().trim();
+
+
                 if (TextUtils.isEmpty(semail)){
                     email.setError("Email is required");
                     return;
@@ -84,38 +87,38 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             if (text.equals("Patient")){
-                                Toast.makeText(Register.this,"User Created",Toast.LENGTH_SHORT).show();
-                                Map<String,Object> patient = new HashMap<>();
-                                patient.put("Email",semail);
-                                patient.put("Name",sname);
-                                patient.put("Contact",scontact);
-                                fStore.collection("patients").add(patient).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                    @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-                                        Log.d("TAG","Document snapshot added with ID:" +documentReference.getId());
-                                    }
-                                });
-                                Intent next = new Intent(Register.this,register_2.class);
-                                next.putExtra("name",sname);
-                                startActivity(next);
+                                String semail = email.getText().toString();
+                                String sname = name.getText().toString();
+                                String scontact  = contact.getText().toString();
+                                Intent pass = new Intent(Register.this,register_2.class);
+                                pass.putExtra("email",semail);
+                                pass.putExtra("name",sname);
+                                pass.putExtra("contact",scontact);
+
+                                startActivity(pass);
+                            }
+                            if (text.equals("Doctor")){
+                                String semail = email.getText().toString();
+                                String sname = name.getText().toString();
+                                String scontact  = contact.getText().toString();
+                                Intent pass = new Intent(Register.this,register_3.class);
+                                pass.putExtra("email",semail);
+                                pass.putExtra("name",sname);
+                                pass.putExtra("contact",scontact);
+
+                                startActivity(pass);
 
                             }
-                            else if(text.equals("Doctor")){
-                                Toast.makeText(Register.this,"User Created",Toast.LENGTH_SHORT).show();
-                                Map<String,Object> doctor = new HashMap<>();
-                                doctor.put("Email",semail);
-                                doctor.put("Name",sname);
-                                doctor.put("Contact",scontact);
-                                fStore.collection("doctors").add(doctor).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                    @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-                                        Log.d("TAG","Document snapshot added with ID:" +documentReference.getId());
-                                    }
-                                });
-                                Intent gotohome = new Intent(Register.this,MainActivity.class);
-                                gotohome.putExtra("name",sname);
-                                startActivity(gotohome);
+                            if (text.equals("Lab Professional")){
+                                String semail = email.getText().toString();
+                                String sname = name.getText().toString();
+                                String scontact  = contact.getText().toString();
+                                Intent pass = new Intent(Register.this,register_4.class);
+                                pass.putExtra("email",semail);
+                                pass.putExtra("name",sname);
+                                pass.putExtra("contact",scontact);
 
+                                startActivity(pass);
 
                             }
 

@@ -4,7 +4,7 @@
             Patient
         </item>
         <item>Doctor</item>
-        <item>X-ray Lab</item>
+        <item>Lab Professional</item>
     </string-array>
     <string name="app_name">Project</string>
     <string name="title_activity_login">login</string>
