@@ -1,4 +1,11 @@
 <resources>
+    <string-array name="occupation">
+        <item>
+            Patient
+        </item>
+        <item>Doctor</item>
+        <item>X-ray Lab</item>
+    </string-array>
     <string name="app_name">Project</string>
     <string name="title_activity_login">login</string>
     <!-- Strings used for fragments for navigation -->

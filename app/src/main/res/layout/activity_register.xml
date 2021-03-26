@@ -8,8 +8,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_register"
-        android:layout_width="357dp"
-        android:layout_height="663dp"
+        android:layout_width="334dp"
+        android:layout_height="598dp"
         app:cardBackgroundColor="@color/deep_blue"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,52 +21,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView_professional_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/playfair_display"
-                android:text="Register Here!"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_professional" />
-
-            <TextView
-                android:id="@+id/text_view_professional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:fontFamily="@font/playfair_display"
-                android:text="Are you a medical professional?"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView_professional_register"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_register_next" />
-
             <Button
                 android:id="@+id/button_register_next"
                 android:layout_width="118dp"
                 android:layout_height="33dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button2"
                 android:fontFamily="@font/playfair_display"
                 android:text="Next"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:backgroundTint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/text_view_professional"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_text_confirm_password" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
             <EditText
                 android:id="@+id/edit_text_confirm_password"
@@ -83,9 +51,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#03A9F4"
                 android:textColorHint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/button_register_next"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_password" />
 
@@ -104,9 +70,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#03A9F4"
                 android:textColorHint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/edit_text_confirm_password"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_email_register" />
 
@@ -114,15 +78,13 @@
                 android:id="@+id/text_view_basic_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/playfair_display"
                 android:text="Basic Details"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/edit_text_full_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_register" />
 
@@ -141,9 +103,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#03A9F4"
                 android:textColorHint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/edit_text_password"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_contact_number" />
 
@@ -162,9 +122,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#03A9F4"
                 android:textColorHint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/edit_text_email_register"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_full_name" />
 
@@ -172,7 +130,7 @@
                 android:id="@+id/edit_text_full_name"
                 android:layout_width="245dp"
                 android:layout_height="46dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button2"
                 android:drawableLeft="@drawable/ic_person"
                 android:drawablePadding="10dp"
@@ -183,9 +141,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#03A9F4"
                 android:textColorHint="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/edit_text_contact_number"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_basic_details" />
 
@@ -193,17 +149,39 @@
                 android:id="@+id/textview_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/playfair_display"
                 android:text="Register"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/text_view_basic_details"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="146dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_confirm_password" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/playfair_display"
+                android:padding="10dp"
+                android:text="Registering as?"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_confirm_password" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
