@@ -20,7 +20,7 @@ public class App_start extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(App_start.this, MainActivity.class);
+                Intent i = new Intent(App_start.this, slide_activity.class);
                 startActivity(i);
 
                 // close this activity

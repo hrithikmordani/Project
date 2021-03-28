@@ -60,7 +60,7 @@ public class register_4 extends AppCompatActivity {
                     }
                 });
                 Toast.makeText(register_4.this,"User Created",Toast.LENGTH_SHORT).show();
-                Intent gotohome = new Intent(register_4.this,MainActivity.class);
+                Intent gotohome = new Intent(register_4.this,login.class);
                 startActivity(gotohome);
 
             }
