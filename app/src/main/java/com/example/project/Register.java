@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,6 +33,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     EditText confirmpassword;
     FirebaseAuth fAuth;
     String text;
+    FirebaseFirestore fStore;
 
 
 
@@ -39,6 +41,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        fStore = FirebaseFirestore.getInstance();
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Register.this,R.array.occupation, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -82,43 +85,71 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     email.setError("Please enter valid email");
                     return;
                 }
+                Map<String,Object> user_tag = new HashMap<>();
+
+                user_tag.put("User_type",text);
                 fAuth.createUserWithEmailAndPassword(semail,spassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             if (text.equals("Patient")){
-                                String semail = email.getText().toString();
-                                String sname = name.getText().toString();
-                                String scontact  = contact.getText().toString();
-                                Intent pass = new Intent(Register.this,register_2.class);
-                                pass.putExtra("email",semail);
-                                pass.putExtra("name",sname);
-                                pass.putExtra("contact",scontact);
 
-                                startActivity(pass);
+                                fStore.collection("user_tag").document(semail).set(user_tag).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        String semail = email.getText().toString();
+                                        String sname = name.getText().toString();
+                                        String scontact  = contact.getText().toString();
+                                        Intent pass = new Intent(Register.this,register_2.class);
+                                        pass.putExtra("email",semail);
+                                        pass.putExtra("name",sname);
+                                        pass.putExtra("contact",scontact);
+
+                                        startActivity(pass);
+
+                                    }
+
+                                });
+
+
+
                             }
                             if (text.equals("Doctor")){
-                                String semail = email.getText().toString();
-                                String sname = name.getText().toString();
-                                String scontact  = contact.getText().toString();
-                                Intent pass = new Intent(Register.this,register_3.class);
-                                pass.putExtra("email",semail);
-                                pass.putExtra("name",sname);
-                                pass.putExtra("contact",scontact);
+                                fStore.collection("user_tag").document(semail).set(user_tag).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        String semail = email.getText().toString();
+                                        String sname = name.getText().toString();
+                                        String scontact  = contact.getText().toString();
+                                        Intent pass = new Intent(Register.this,register_3.class);
+                                        pass.putExtra("email",semail);
+                                        pass.putExtra("name",sname);
+                                        pass.putExtra("contact",scontact);
 
-                                startActivity(pass);
+                                        startActivity(pass);
+                                    }
+                                });
+
+
+
 
                             }
                             if (text.equals("Lab Professional")){
-                                String semail = email.getText().toString();
-                                String sname = name.getText().toString();
-                                String scontact  = contact.getText().toString();
-                                Intent pass = new Intent(Register.this,register_4.class);
-                                pass.putExtra("email",semail);
-                                pass.putExtra("name",sname);
-                                pass.putExtra("contact",scontact);
+                                fStore.collection("user_tag").document(semail).set(user_tag).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        String semail = email.getText().toString();
+                                        String sname = name.getText().toString();
+                                        String scontact  = contact.getText().toString();
+                                        Intent pass = new Intent(Register.this,register_4.class);
+                                        pass.putExtra("email",semail);
+                                        pass.putExtra("name",sname);
+                                        pass.putExtra("contact",scontact);
 
-                                startActivity(pass);
+                                        startActivity(pass);
+                                    }
+                                });
+
 
                             }
 

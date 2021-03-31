@@ -1,5 +1,6 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +27,7 @@ public class register_2 extends AppCompatActivity {
     EditText dob,weight,height,bloodgroup;
     String name,contact,email;
     FirebaseFirestore fStore;
-
+    String TAG;
 
 
 
@@ -62,17 +64,24 @@ public class register_2 extends AppCompatActivity {
                 patient_details.put("Height",sheight);
                 patient_details.put("Blood group",sblood);
 
-                fStore.collection("patients_details").add(patient_details).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                fStore.collection("patients_details").document(email).set(patient_details).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("TAG","Document snapshot added with ID:" +documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(register_2.this,"User Created",Toast.LENGTH_SHORT).show();
+
+                        Intent gotohome = new Intent(register_2.this,login.class);
+                        startActivity(gotohome);
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG,"Error in creating user",e);
                     }
                 });
 
-                Toast.makeText(register_2.this,"User Created",Toast.LENGTH_SHORT).show();
 
-                Intent gotohome = new Intent(register_2.this,login.class);
-                startActivity(gotohome);
+
 
 
             }
