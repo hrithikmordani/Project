@@ -11,10 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-        <activity android:name=".slide_activity">
-
-
-        </activity>
+        <activity android:name=".lab_homepage"></activity>
+        <activity android:name=".doctor_homepage" />
+        <activity android:name=".slide_activity" />
         <activity android:name=".register_4" />
         <activity android:name=".register_3" />
         <activity android:name=".register_2" />
@@ -26,7 +25,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".MainActivity" />
 
