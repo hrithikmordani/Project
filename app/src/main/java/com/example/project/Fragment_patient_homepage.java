@@ -20,14 +20,27 @@ public class Fragment_patient_homepage extends Fragment implements View.OnClickL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_patient_homepage,container,false);
         Button book_doctor = v.findViewById(R.id.button_bookdoctor);
+        Button read_disease = v.findViewById(R.id.button_read_more);
+
         book_doctor.setOnClickListener(this);
+        read_disease.setOnClickListener(this);
         return v;
 
     }
 
+
+
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getActivity(),book_doctor.class);
-        startActivity(intent);
+        switch (v.getId()){
+            case R.id.button_bookdoctor:
+                Intent intent = new Intent(getContext(),book_doctor.class);
+                startActivity(intent);
+                break;
+            case R.id.button_read_more:
+                Intent read = new Intent(getContext(),disease.class);
+                startActivity(read);
+        }
+
     }
 }
