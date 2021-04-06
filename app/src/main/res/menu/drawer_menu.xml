@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+        <item android:title="App options">
+            <menu>
+                <item android:id="@+id/Read_disease_nav"
+                    android:title="Read about a disease"
+                    android:icon="@drawable/ic_baseline_notes_24"
+                    />
+                <item android:id="@+id/Book_doctor_nav"
+                    android:title="Book a doctor"
+                    android:icon="@drawable/ic_baseline_add_to_queue_24"
+                    />
+                <item android:id="@+id/Lab_appointment_nav"
+                    android:title="Lab Appointment"
+
+                    />
+            </menu>
+        </item>
+
+        <item android:title="Settings">
+
+            <menu>
+                <item android:id="@+id/Edit_Personal_settings"
+                    android:title="Edit personal information"
+                    android:icon="@drawable/ic_baseline_edit_24">
+
+                </item>
+                <item android:id="@+id/logout_nav"
+                    android:title="Logout"
+                    android:icon="@drawable/ic_baseline_exit_to_app_24">
+
+                </item>
+            </menu>
+        </item>
+
+
+
+
+
+
+</menu>

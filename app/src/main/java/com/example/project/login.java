@@ -24,6 +24,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Source;
 
 public class login extends AppCompatActivity {
     TextView register_here;
@@ -31,6 +32,7 @@ public class login extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String text;
+    String got_name;
 
 
     @Override
@@ -70,7 +72,7 @@ public class login extends AppCompatActivity {
                 }
 
                 DocumentReference documentReference = fStore.collection("user_tag").document(semail);
-                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                documentReference.get(Source.SERVER).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()){
@@ -84,12 +86,28 @@ public class login extends AppCompatActivity {
                         Toast.makeText(login.this,"Can't fetch tag",Toast.LENGTH_SHORT).show();
                     }
                 });
+                DocumentReference documentReference1 = fStore.collection("patients_details").document(semail);
+                documentReference1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()){
+                            DocumentSnapshot document1 = task.getResult();
+                            got_name = document1.getString("Name");
+                            Toast.makeText(login.this,"Got name of user "+got_name,Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    }
+                });
                 fAuth.signInWithEmailAndPassword(semail,spassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             if (text.equals("Patient")){
-                                Intent patientmain = new Intent(login.this,MainActivity.class);
+                                Intent patientmain = new Intent(login.this,patient_homepage.class);
+                                patientmain.putExtra("email",semail);
+
+                                patientmain.putExtra("Name",got_name);
                                 startActivity(patientmain);
                             }
                             else if(text.equals("Doctor")){

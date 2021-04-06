@@ -56,10 +56,10 @@ public class register_3 extends AppCompatActivity {
                 doctor_details.put("Name",name);
                 doctor_details.put("Contact",contact);
                 doctor_details.put("Email",email);
-                doctor_details.put("Experience",sexp);
-                doctor_details.put("Education",sedu);
+                doctor_details.put("Experience",sexp + " yrs of exp. overall");
+                doctor_details.put("Location",sedu);
                 doctor_details.put("Specialization",sspecial);
-                doctor_details.put("Hospital/Clinic",shosp);
+                doctor_details.put("Hospital",shosp);
 
                 fStore.collection("doctor_details").document(email).set(doctor_details).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
