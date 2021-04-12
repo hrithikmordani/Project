@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="25dp"
+    android:layout_margin="10dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tag6_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_problem"
+            android:drawablePadding="10dp"
+            android:text="Critical: needs emergency care"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tag5_d"
+            app:layout_constraintTop_toBottomOf="@+id/tag5_d" />
+
+        <TextView
+            android:id="@+id/tag5_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_time"
+            android:drawablePadding="10dp"
+            android:text="Short-term: resolves within days to weeks"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tag4_d"
+            app:layout_constraintTop_toBottomOf="@+id/tag4_d" />
+
+        <TextView
+            android:id="@+id/tag4_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_healing_24"
+            android:drawablePadding="10dp"
+            android:text="Lab tests or imaging always required"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tag3_d"
+            app:layout_constraintTop_toBottomOf="@+id/tag3_d" />
+
+        <TextView
+            android:id="@+id/tag3_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_note"
+            android:drawablePadding="10dp"
+            android:text="Requires a medical diagnosis"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tag2_d"
+            app:layout_constraintTop_toBottomOf="@+id/tag2_d" />
+
+        <TextView
+            android:id="@+id/tag2_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_coronavirus"
+            android:drawablePadding="10dp"
+            android:text="Spreads by animals or insects"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tag1_d"
+            app:layout_constraintTop_toBottomOf="@+id/tag1_d" />
+
+        <TextView
+            android:id="@+id/Common_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Rare"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/Name_d"
+            app:layout_constraintTop_toBottomOf="@+id/Name_d" />
+
+        <TextView
+            android:id="@+id/Name_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Malaria"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Cases_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Fewer than 1 million cases per year (India)"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/Common_d"
+            app:layout_constraintTop_toBottomOf="@+id/Common_d" />
+
+        <TextView
+            android:id="@+id/tag1_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:drawableLeft="@drawable/ic_medical"
+            android:drawablePadding="10dp"
+            android:text="Treatable by a medical professional"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Cases_d" />
+
+        <Button
+            android:id="@+id/btn_card_readmore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="76dp"
+            android:text="Read More"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag6_d" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

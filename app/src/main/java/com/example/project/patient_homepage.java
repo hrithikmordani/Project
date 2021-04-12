@@ -33,6 +33,9 @@ public class patient_homepage extends AppCompatActivity implements NavigationVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View screen = getWindow().getDecorView();
+        int ui = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        screen.setSystemUiVisibility(ui);
         setContentView(R.layout.activity_patient_homepage);
         Toolbar toolbar = findViewById(R.id.toolbar_patient_homepage);
         setSupportActionBar(toolbar);
@@ -70,6 +73,11 @@ public class patient_homepage extends AppCompatActivity implements NavigationVie
         }
 
     }
+
+    public String getData(){
+        return got_email;
+    }
+    public String getName(){return got_name;}
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

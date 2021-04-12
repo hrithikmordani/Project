@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class Fragment_patient_homepage extends Fragment implements View.OnClickListener {
+    String email;
+    String name;
 
 
 
@@ -21,9 +23,15 @@ public class Fragment_patient_homepage extends Fragment implements View.OnClickL
         View v = inflater.inflate(R.layout.fragment_patient_homepage,container,false);
         Button book_doctor = v.findViewById(R.id.button_bookdoctor);
         Button read_disease = v.findViewById(R.id.button_read_more);
+        Button book_lab = v.findViewById(R.id.button_book_lab);
+        patient_homepage activity = (patient_homepage)getActivity();
+        email = activity.getData();
+        name = activity.getName();
+
 
         book_doctor.setOnClickListener(this);
         read_disease.setOnClickListener(this);
+        book_lab.setOnClickListener(this);
         return v;
 
     }
@@ -35,11 +43,21 @@ public class Fragment_patient_homepage extends Fragment implements View.OnClickL
         switch (v.getId()){
             case R.id.button_bookdoctor:
                 Intent intent = new Intent(getContext(),book_doctor.class);
+                intent.putExtra("Email",email);
+                intent.putExtra("Name",name);
                 startActivity(intent);
                 break;
             case R.id.button_read_more:
-                Intent read = new Intent(getContext(),disease.class);
-                startActivity(read);
+                Intent intent1 = new Intent(getContext(),read_disease.class);
+                startActivity(intent1);
+                break;
+            case R.id.button_book_lab:
+                Intent intent2 = new Intent(getContext(),lab_test.class);
+                intent2.putExtra("Email",email);
+                intent2.putExtra("Name",name);
+                startActivity(intent2);
+                break;
+
         }
 
     }

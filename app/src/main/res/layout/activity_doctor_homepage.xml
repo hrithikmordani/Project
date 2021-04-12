@@ -6,14 +6,105 @@
     android:layout_height="match_parent"
     tools:context=".doctor_homepage">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/deep_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/doc_card_location3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Andheri West"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/doc_card_experience3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="25 years of exp. overall"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/doc_card_special3"
+            app:layout_constraintTop_toBottomOf="@+id/doc_card_special3" />
+
+        <TextView
+            android:id="@+id/doc_card_special3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Cardiologist"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/doc_card_name3"
+            app:layout_constraintTop_toBottomOf="@+id/doc_card_name3" />
+
+        <TextView
+            android:id="@+id/doc_card_name3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Dr. Hrithik Mordani"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_person" />
+
+        <TextView
+            android:id="@+id/doc_card_hospital3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-Kokilaben Dhirubai Ambani Hospital"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toEndOf="@+id/doc_card_location3"
+            app:layout_constraintTop_toTopOf="@+id/doc_card_location3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Doctor"
-        android:textSize="36sp"
+        android:layout_marginTop="20dp"
+        android:text="Schedule"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_doctor_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

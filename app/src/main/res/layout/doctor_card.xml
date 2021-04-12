@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@+id/doc_card_name" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_doc_card_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

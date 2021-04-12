@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,13 +40,14 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
         register_here = findViewById(R.id.textview_login_register);
         email = findViewById(R.id.login_email);
         password = findViewById(R.id.login_password);
         Button ab = findViewById(R.id.ab);
         fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+
         register_here.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +58,7 @@ public class login extends AppCompatActivity {
         ab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fStore = FirebaseFirestore.getInstance();
                 String semail = email.getText().toString().trim();
                 String spassword = password.getText().toString().trim();
                 if (TextUtils.isEmpty(semail)){
@@ -70,29 +74,25 @@ public class login extends AppCompatActivity {
                     email.setError("Please enter valid email");
                     return;
                 }
-
                 DocumentReference documentReference = fStore.collection("user_tag").document(semail);
-                documentReference.get(Source.SERVER).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()){
-                            DocumentSnapshot document = task.getResult();
-                            text = document.getString("User_type");
+
+                            text = task.getResult().getString("User_type");
                         }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(login.this,"Can't fetch tag",Toast.LENGTH_SHORT).show();
-                    }
                 });
+
+
                 DocumentReference documentReference1 = fStore.collection("patients_details").document(semail);
                 documentReference1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful()){
-                            DocumentSnapshot document1 = task.getResult();
-                            got_name = document1.getString("Name");
+
+                            got_name = task.getResult().getString("Name");
                             Toast.makeText(login.this,"Got name of user "+got_name,Toast.LENGTH_SHORT).show();
 
 
@@ -103,6 +103,7 @@ public class login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+
                             if (text.equals("Patient")){
                                 Intent patientmain = new Intent(login.this,patient_homepage.class);
                                 patientmain.putExtra("email",semail);
@@ -111,7 +112,11 @@ public class login extends AppCompatActivity {
                                 startActivity(patientmain);
                             }
                             else if(text.equals("Doctor")){
+
                                 Intent doctormain = new Intent(login.this,doctor_homepage.class);
+
+                                doctormain.putExtra("Email",semail);
+                                Toast.makeText(login.this, "got email " + semail, Toast.LENGTH_SHORT).show();
                                 startActivity(doctormain);
                             }
                             else{
